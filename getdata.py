@@ -1,6 +1,8 @@
 import sqlite3 as lite
+import subprocess
 from flask import request, Flask, render_template, url_for
 
+subprocess.call("python extractdata.py")
 app = Flask(__name__)
 
 @app.route('/getdata', methods=['POST'])
