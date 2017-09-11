@@ -30,7 +30,7 @@ con = sqlite3.connect(':memory')
 cursor = con.cursor()
 cursor.executescript(query)
 
-with open('Restaurant_Inspection_Results.csv','rb') as filx:
+with open('DOHMH_New_York_City_Restaurant_Inspection_Results.csv','rb') as filx:
     dr = csv.DictReader(filx) # comma is default delimiter
     to_db = [(i['CAMIS'].decode('utf8'), i['DBA'].decode('utf8'), i['BORO'].decode('utf8'), i['BUILDING'].decode('utf8'), i['STREET'].decode('utf8'), i['ZIPCODE'].decode('utf8'), i['PHONE'].decode('utf8'), i['CUISINE DESCRIPTION'].decode('utf8'), i['INSPECTION DATE'].decode('utf8'), i['ACTION'].decode('utf8'), i['VIOLATION CODE'].decode('utf8'), i['VIOLATION DESCRIPTION'].decode('utf8'), i['CRITICAL FLAG'].decode('utf8'), i['SCORE'].decode('utf8'), i['GRADE'].decode('utf8'), i['GRADE DATE'].decode('utf8'), i['RECORD DATE'].decode('utf8'), i['INSPECTION TYPE'].decode('utf8')) for i in dr]
 
@@ -41,7 +41,3 @@ try:
 
 except sqlite3.Error as er:
 	print("something went wrong " + er)
-
-
-
-

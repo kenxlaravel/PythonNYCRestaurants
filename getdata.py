@@ -18,8 +18,6 @@ def getdata():
 
     if request.method == 'POST':
 
-        if request.values.get('grade', None) == 'A':
-
         # Then get the data from the form
             grade = request.form['grade']
             text_grade = grade.upper()
@@ -31,8 +29,8 @@ def getdata():
 
             for row in rows:
                 data = '%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s' % (row['CAMIS'], row['DBA'], row['BORO'], row['BUILDING'], row['STREET'], row['ZIPCODE'], row['PHONE'], row['CUISINE DESCRIPTION'], row['INSPECTION DATE'], row['ACTION'], row['VIOLATION CODE'], row['VIOLATION DESCRIPTION'], row['CRITICAL FLAG'], row['SCORE'], row['GRADE'], row['GRADE DATE'], row['RECORD DATE'], row['INSPECTION TYPE'])
-        
-        return render_template('restaurants.html', data)
+
+    return render_template('restaurants.html', data)
 
 
 if __name__ == '__main__':
